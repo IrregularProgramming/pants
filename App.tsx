@@ -7,17 +7,18 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
-import { ImageBackground } from "react-native";
 
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
+  ImageBackground,
   StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
   Text,
   useColorScheme,
-  View,
+  Alert,
 } from 'react-native';
+
 
 import {
   Colors,
@@ -65,32 +66,36 @@ function App(): React.JSX.Element {
   };
 
   return (
+    
     <ImageBackground
       style={{width: '100%', height: '100%'}}
       source={require('./android/app/images/bgpants.png')}>
       <Text>test2</Text>
+      <View style={styles.container}>
+      <View
+        style={{marginTop: 10, padding: 10, borderRadius: 10, width: '40%'}}>
+        <Button title="Get Location" />
+      </View>
+      <Text>Latitude: </Text>
+      <Text>Longitude: </Text>
+      <View
+        style={{marginTop: 10, padding: 10, borderRadius: 10, width: '40%'}}>
+        <Button title="Send Location" />
+      </View>
+      </View>
     </ImageBackground>
+
   );
 }
 
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+ });
+ 
 
 export default App;
